@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel XYZ - Inicio</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <script>
+        includeHTML("header.html", "header");
+    </script>
+
+
+    <div class="container">
+        <h1 class="mt-4">Bienvenido al Hotel XYZ</h1>
+        <p>Disfruta de una experiencia única en nuestro hotel delujo.</p>
+        <!-- Mostrar habitaciones disponibles -->
+        <h2>Habitaciones Disponibles</h2>
+        <div class="row" id="habitaciones-disponibles">
+            <!-- Aquí se cargarán las habitaciones mediante AJAX -->
+        </div>
+    </div>
+
+    <script>
+        includeHTML("footer.html", "footer");
+    </script>
+    <!-- Enlaces a JavaScript -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Cargar habitaciones disponibles al cargar la página
+        $(document).ready(function () {
+            $.ajax({
+                url: '/api/habitaciones/disponibles',
+                method: 'GET',
+                success: function (data) {
+                    var habitaciones = data;
+                    $.each(habitaciones, function (index, habitacion) {
+                        var habitacionHtml = `
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <img class="card-img-top"
+                                        src="${habitacion.imagen}" alt="Habitación ${habitacion.numero_habitacion}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Habitación ${habitacion.numero_habitacion}</h5>
+                                        <p class="card-text">${habitacion.descripcion}</p>
+                                        <p class="card-text"><strong>Precio: $${habitacion.precio}</strong></p>
+                                        <a href="login.html" class="btn btn-primary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        $('#habitaciones-disponibles').append(habitacionHtml);
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+
+</html>
