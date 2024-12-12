@@ -4,19 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel XYZ - Inicio</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Hotel Santacrusiana - Inicio</title>
+    <link rel="stylesheet" href="../presentation_layer/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../presentation_layer/assets/css/style.css">
 </head>
 
 <body>
+    <!--  
     <script>
         includeHTML("header.html", "header");
     </script>
+    -->
+
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Hotel Santacrusiana</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- Menú de navegación -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar
+                            Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
     <div class="container">
-        <h1 class="mt-4">Bienvenido al Hotel XYZ</h1>
+        <h1 class="mt-4">Bienvenido al Hotel Santacrusiana</h1>
         <p>Disfruta de una experiencia única en nuestro hotel delujo.</p>
         <!-- Mostrar habitaciones disponibles -->
         <h2>Habitaciones Disponibles</h2>
@@ -25,13 +49,26 @@
         </div>
     </div>
 
+    <!--
     <script>
         includeHTML("footer.html", "footer");
     </script>
+    -->
+
+    <!-- footer.html -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2023 Hotel XYZ. Todos los derechos
+                reservados.</small>
+        </div>
+    </footer>
+
+
+
     <!-- Enlaces a JavaScript -->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../presentation_layer/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../presentation_layer/assets/js/bootstrap.min.js"></script>
+    <script src="../presentation_layer/assets/js/main.js"></script>
     <script>
         // Cargar habitaciones disponibles al cargar la página
         $(document).ready(function () {
@@ -64,7 +101,7 @@
             });
         });
     </script>
-    
+
 
 </body>
 

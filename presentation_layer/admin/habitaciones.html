@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel XYZ - Inicio</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <script>
+        includeHTML("header.html", "header");
+    </script>
+
+    
+
+
+    <script>
+        includeHTML("footer.html", "footer");
+    </script>
+    <!-- Enlaces a JavaScript -->
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tabla-reservas').DataTable({
+                "ajax": {
+                    "url": "/api/reservas",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "id" },
+                    { "data": "cliente_nombre" },
+                    { "data": "habitacion_numero" },
+                    { "data": "fecha_inicio" },
+                    { "data": "fecha_fin" },
+                    { "data": "estado" }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Habitaciones</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <script>
+        includeHTML("header.html", "header");
+    </script>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Perfil de Usuario</h1>
+
+        <div class="row justify-content-center">
+            <!-- Información del perfil -->
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Foto de Perfil">
+                            <h4 id="nombre-usuario">Nombre del Usuario</h4>
+                            <p id="email-usuario" class="text-muted">correo@ejemplo.com</p>
+                        </div>
+
+                        <!-- Información adicional -->
+                        <div>
+                            <h5>Información Personal</h5>
+                            <p><strong>Teléfono:</strong> <span id="telefono-usuario">+123 456 789</span></p>
+                            <p><strong>Dirección:</strong> <span id="direccion-usuario">123 Calle Principal,
+                                    Ciudad</span></p>
+                        </div>
+
+                        <!-- Botón para editar perfil -->
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" id="editar-perfil">Editar Perfil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ejemplo: cargar datos de usuario desde localStorage o API
+            const usuario = {
+                nombre: "Juan Pérez",
+                email: "juan.perez@ejemplo.com",
+                telefono: "+123 456 789",
+                direccion: "123 Calle Principal, Ciudad"
+            };
+
+            // Renderizar datos en la página
+            $('#nombre-usuario').text(usuario.nombre);
+            $('#email-usuario').text(usuario.email);
+            $('#telefono-usuario').text(usuario.telefono);
+            $('#direccion-usuario').text(usuario.direccion);
+
+            // Botón de edición (lógica básica)
+            $('#editar-perfil').click(function () {
+                alert("Función de edición de perfil en construcción.");
+            });
+        });
+    </script>
+
+    <script>
+        includeHTML("footer.html", "footer");
+    </script>
+</body>
+
+</html>
