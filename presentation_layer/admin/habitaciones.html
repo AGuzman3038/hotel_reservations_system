@@ -10,38 +10,73 @@
 </head>
 
 <body>
-    <script>
-        includeHTML("header.html", "header");
-    </script>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Hotel XYZ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="mt-4">Habitaciones Disponibles</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-deluxe.jpg" alt="Habitación Deluxe">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Deluxe</h5>
+                        <p class="card-text">Una habitación espaciosa con todas las comodidades modernas.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-familiar.jpg" alt="Suite Familiar">
+                    <div class="card-body">
+                        <h5 class="card-title">Suite Familiar</h5>
+                        <p class="card-text">Perfecta para familias, con dos camas grandes y sala de estar.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-economica.jpg" alt="Habitación Económica">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Económica</h5>
+                        <p class="card-text">Alojamiento sencillo y cómodo a un precio accesible.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2023 Hotel XYZ. Todos los derechos reservados.</small>
+        </div>
+    </footer>
 
-    <script>
-        includeHTML("footer.html", "footer");
-    </script>
-    <!-- Enlaces a JavaScript -->
+    <!-- JavaScript Files -->
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#tabla-reservas').DataTable({
-                "ajax": {
-                    "url": "/api/reservas",
-                    "dataSrc": ""
-                },
-                "columns": [
-                    { "data": "id" },
-                    { "data": "cliente_nombre" },
-                    { "data": "habitacion_numero" },
-                    { "data": "fecha_inicio" },
-                    { "data": "fecha_fin" },
-                    { "data": "estado" }
-                ]
-            });
-        });
-    </script>
 </body>
 
 </html>

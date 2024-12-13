@@ -4,19 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Santacrusiana - Inicio</title>
+    <title>Hotel Santacrusiana</title>
     <link rel="stylesheet" href="../presentation_layer/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../presentation_layer/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
-    <!--  
-    <script>
-        includeHTML("header.html", "header");
-    </script>
-    -->
-
-    <!-- header -->
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Hotel Santacrusiana</a>
@@ -24,11 +18,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <!-- Menú de navegación -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Iniciar
-                            Sesión</a>
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.html">Registrarse</a>
@@ -38,71 +30,53 @@
         </div>
     </nav>
 
-
-    <div class="container">
-        <h1 class="mt-4">Bienvenido al Hotel Santacrusiana</h1>
-        <p>Disfruta de una experiencia única en nuestro hotel delujo.</p>
-        <!-- Mostrar habitaciones disponibles -->
-        <h2>Habitaciones Disponibles</h2>
-        <div class="row" id="habitaciones-disponibles">
-            <!-- Aquí se cargarán las habitaciones mediante AJAX -->
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="mt-4">Habitaciones Disponibles</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-deluxe.jpg" alt="Habitación Deluxe">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Deluxe</h5>
+                        <p class="card-text">Una habitación espaciosa con todas las comodidades modernas.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-familiar.jpg" alt="Suite Familiar">
+                    <div class="card-body">
+                        <h5 class="card-title">Suite Familiar</h5>
+                        <p class="card-text">Perfecta para familias, con dos camas grandes y sala de estar.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-economica.jpg" alt="Habitación Económica">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Económica</h5>
+                        <p class="card-text">Alojamiento sencillo y cómodo a un precio accesible.</p>
+                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!--
-    <script>
-        includeHTML("footer.html", "footer");
-    </script>
-    -->
-
-    <!-- footer.html -->
+    <!-- Footer -->
     <footer class="py-4 bg-dark text-white-50">
         <div class="container text-center">
-            <small>© 2023 Hotel XYZ. Todos los derechos
-                reservados.</small>
+            <small>© 2023 Hotel Santacrusiana. Todos los derechos reservados.</small>
         </div>
     </footer>
 
-
-
-    <!-- Enlaces a JavaScript -->
-    <script src="../presentation_layer/assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../presentation_layer/assets/js/bootstrap.min.js"></script>
-    <script src="../presentation_layer/assets/js/main.js"></script>
-    <script>
-        // Cargar habitaciones disponibles al cargar la página
-        $(document).ready(function () {
-            $.ajax({
-                url: '/api/habitaciones/disponibles',
-                method: 'GET',
-                success: function (data) {
-                    var habitaciones = data;
-                    $.each(habitaciones, function (index, habitacion) {
-                        var habitacionHtml = `
-                            <div class="col-md-4">
-                                <div class="card mb-4">
-                                    <img class="card-img-top"
-                                        src="${habitacion.imagen}" alt="Habitación ${habitacion.numero_habitacion}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Habitación ${habitacion.numero_habitacion}</h5>
-                                        <p class="card-text">${habitacion.descripcion}</p>
-                                        <p class="card-text"><strong>Precio: $${habitacion.precio}</strong></p>
-                                        <a href="login.html" class="btn btn-primary">Reservar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        $('#habitaciones-disponibles').append(habitacionHtml);
-                    });
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        });
-    </script>
-
-
+    <!-- JavaScript Files -->
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
