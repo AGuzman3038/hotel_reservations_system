@@ -20,3 +20,21 @@ $(document).ready(function() {
         });
     }
 });
+
+// main.js
+function includeHTML(file, targetId) {
+    fetch(file)
+        .then(response => {
+            if (!response.ok) throw new Error(`Error al cargar el archivo: ${file}`);
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById(targetId).innerHTML = data;
+        })
+        .catch(error => console.error(error));
+}
+
+// Llama a la función cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", () => {
+    includeHTML("../presentation_layer/header.html", "header");
+});

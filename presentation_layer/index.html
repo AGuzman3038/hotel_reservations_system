@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Santacrusiana</title>
+
+    <!-- Título de la página -->
+    <title>Hotel Santacrusiana - Inicio</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <!-- Bootstrap CSS para estilos predefinidos -->
     <link rel="stylesheet" href="../presentation_layer/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
@@ -13,59 +18,125 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
+            <!-- Logo del hotel -->
             <a class="navbar-brand" href="index.html">Hotel Santacrusiana</a>
+            <!-- Botón para menú responsive -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <!-- Link para iniciar sesión -->
                         <a class="nav-link" href="login.html">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
+                        <!-- Link para registrarse -->
                         <a class="nav-link" href="register.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Link para ver el perfil del cliente -->
+                        <a class="nav-link" href="cliente/perfil.html">Perfil</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <div class="container mt-5">
         <h1 class="mt-4">Habitaciones Disponibles</h1>
         <div class="row">
+            <!-- Tarjeta de Habitación Deluxe -->
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img class="card-img-top" src="../assets/imagenes/habitacion-deluxe.jpg" alt="Habitación Deluxe">
+                    <!-- Imagen de la habitación -->
+                    <img class="card-img-top" src="../presentation_layer/assets/imagenes/habitacion-deluxe.jpg" alt="Habitación Deluxe">
                     <div class="card-body">
                         <h5 class="card-title">Habitación Deluxe</h5>
                         <p class="card-text">Una habitación espaciosa con todas las comodidades modernas.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <!-- Botón para reservar esta habitación -->
+                        <a href="../presentation_layer/cliente/reservas.html" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Tarjeta de Suite Familiar -->
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img class="card-img-top" src="../assets/imagenes/habitacion-familiar.jpg" alt="Suite Familiar">
+                    <img class="card-img-top" src="../presentation_layer/assets/imagenes/habitacion-familiar.jpg" alt="Suite Familiar">
                     <div class="card-body">
                         <h5 class="card-title">Suite Familiar</h5>
                         <p class="card-text">Perfecta para familias, con dos camas grandes y sala de estar.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <a href="../presentation_layer/cliente/reservas.html" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Tarjeta de Habitación Económica -->
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img class="card-img-top" src="../assets/imagenes/habitacion-economica.jpg" alt="Habitación Económica">
+                    <img class="card-img-top" src="../presentation_layer/assets/imagenes/habitacion-economica.jpg" alt="Habitación Económica">
                     <div class="card-body">
                         <h5 class="card-title">Habitación Económica</h5>
                         <p class="card-text">Alojamiento sencillo y cómodo a un precio accesible.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <a href="../presentation_layer/cliente/reservas.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón para mostrar más habitaciones -->
+        <div class="text-center mt-4">
+            <a href="../presentation_layer/admin/habitaciones.html" class="btn btn-secondary btn-lg">Mostrar Más</a>
+        </div>
+
+        <!-- Sección de reseñas de clientes -->
+        <div class="mt-5">
+            <h2 class="text-center">Reseñas de Nuestros Clientes</h2>
+            <div class="row">
+                <!-- Tarjeta Reseña 1 -->
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Fernanda Martinez</h5>
+                            <p class="card-text">"La experiencia en el Hotel Santacrusiana fue inolvidable. La atención al cliente es excepcional."</p>
+                            <p class="text-muted">★★★★★</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta Reseña 2 -->
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Carlos Mendez</h5>
+                            <p class="card-text">"Habitaciones limpias y cómodas. ¡Definitivamente regresaré en mi próxima visita!"</p>
+                            <p class="text-muted">★★★★☆</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta Reseña 3 -->
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Maria de las Peñas</h5>
+                            <p class="card-text">"Gran ubicación y excelente servicio. Recomiendo mucho este hotel."</p>
+                            <p class="text-muted">★★★★★</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Sección "Sobre Nosotros" -->
+    <section id="about-us" class="mt-5">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <p>En Hotel Santacrusiana, ofrecemos una experiencia única y memorable a nuestros huéspedes, con servicios de calidad y un ambiente acogedor.</p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="py-4 bg-dark text-white-50">
@@ -74,9 +145,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
+    <!-- Archivos JavaScript -->
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../presentation_layer/assets/js/main.js"></script>
 </body>
 
 </html>

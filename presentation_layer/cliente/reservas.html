@@ -4,29 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la página -->
     <title>Hotel Santacrusiana - Reserva</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <!-- Bootstrap CSS para estilos predefinidos -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
-    <script>
-        includeHTML("header.html", "header");
-    </script>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Nombre del hotel como enlace al inicio -->
+            <a class="navbar-brand" href="../index.html">Hotel Santacrusiana</a>
+            <!-- Botón para menú colapsable (versión móvil) -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Opciones del menú -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- Enlace para iniciar sesión -->
+                        <a class="nav-link" href="../login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Enlace para registrarse -->
+                        <a class="nav-link" href="../register.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Enlace para ver el perfil del cliente -->
+                        <a class="nav-link" href="../cliente/perfil.html">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Contenido Principal -->
     <div class="container mt-5">
+        <!-- Título de la página -->
         <h1 class="text-center mb-4">Reservar una Habitación</h1>
 
         <!-- Formulario de reserva -->
         <form id="form-reserva" class="shadow p-4 rounded">
+            <!-- Campo para el nombre del cliente -->
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre Completo</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo" required>
             </div>
+            <!-- Campo para el correo electrónico -->
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo" required>
             </div>
+            <!-- Menú desplegable para seleccionar una habitación -->
             <div class="mb-3">
                 <label for="habitacion" class="form-label">Selecciona una Habitación</label>
                 <select class="form-select" id="habitacion" required>
@@ -36,44 +71,58 @@
                     <option value="103">Habitación 103 - $150</option>
                 </select>
             </div>
+            <!-- Campo para seleccionar la fecha de inicio -->
             <div class="mb-3">
                 <label for="fecha_inicio" class="form-label">Fecha de Inicio</label>
                 <input type="date" class="form-control" id="fecha_inicio" required>
             </div>
+            <!-- Campo para seleccionar el fin de la fecha -->
             <div class="mb-3">
                 <label for="fecha_fin" class="form-label">Fin de Fecha</label>
                 <input type="date" class="form-control" id="fecha_fin" required>
             </div>
+            <!-- Botón para enviar el formulario -->
             <button type="submit" class="btn btn-primary w-100">Reservar</button>
         </form>
 
+        <!-- Mensajes de estado -->
         <!-- Mensaje de éxito -->
         <div id="mensaje-exito" class="alert alert-success mt-4 d-none" role="alert">
             ¡Reserva realizada con éxito!
         </div>
-
         <!-- Mensaje de error -->
         <div id="mensaje-error" class="alert alert-danger mt-4 d-none" role="alert">
             Ocurrió un error al realizar la reserva. Por favor, inténtalo de nuevo.
         </div>
     </div>
 
+    <!-- footer -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2023 Hotel Santacrusiana. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- Archivos JavaScript -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <!-- Script para gestionar el formulario de reserva -->
     <script>
         $(document).ready(function () {
             $('#form-reserva').submit(function (event) {
+                // Previene el envío predeterminado del formulario
                 event.preventDefault();
 
-                // Obtener datos del formulario
+                // Captura los datos del formulario
                 const nombre = $('#nombre').val();
                 const email = $('#email').val();
                 const habitacion = $('#habitacion').val();
                 const fechaInicio = $('#fecha_inicio').val();
                 const fechaFin = $('#fecha_fin').val();
 
-                // Enviar datos al servidor
+                // Enviar datos al servidor mediante AJAX
                 $.ajax({
-                    url: '/api/reservas',
+                    url: '/api/reservas', // URL del endpoint de reservas
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({
@@ -84,11 +133,13 @@
                         fecha_fin: fechaFin
                     }),
                     success: function () {
+                        // Muestra mensaje de éxito
                         $('#mensaje-exito').removeClass('d-none');
                         $('#mensaje-error').addClass('d-none');
-                        $('#form-reserva')[0].reset();
+                        $('#form-reserva')[0].reset(); // Limpia el formulario
                     },
                     error: function () {
+                        // Muestra mensaje de error
                         $('#mensaje-error').removeClass('d-none');
                         $('#mensaje-exito').addClass('d-none');
                     }
@@ -96,11 +147,6 @@
             });
         });
     </script>
-
-    <script>
-        includeHTML("footer.html", "footer");
-    </script>
-    <script src="../assets/js/auth.js"></script>
 </body>
 
 </html>

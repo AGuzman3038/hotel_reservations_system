@@ -4,61 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel XYZ - Inicio</title>
+
+    <!-- Título de la página -->
+    <title>Hotel Santacrusiana - Reservas</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <!-- Bootstrap CSS para estilos predefinidos -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- DataTables CSS para tablas dinámicas -->
+    <link rel="stylesheet" href="../assets/css/datatables.min.css">
 </head>
 
 <body>
-    <script>
-        includeHTML("header.html", "header");
-    </script>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Logo del hotel -->
+            <a class="navbar-brand" href="../index.html">Hotel Santacrusiana</a>
+            <!-- Botón para menú responsive -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Opciones del menú -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- Enlace para iniciar sesión -->
+                        <a class="nav-link" href="../presentation_layer/login.html">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Contenido principal -->
-    <div class="container">
-        <h1 class="mt-4">Administración de Reservas</h1>
-        <table id="tabla-reservas" class="display">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Habitación</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Contenido cargado mediante AJAX -->
-            </tbody>
-        </table>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Reservar Habitación</h1>
+
+        <!-- Formulario de reserva -->
+        <form id="form-reserva" class="mt-4">
+            <!-- Campo para el nombre del cliente -->
+            <div class="form-group">
+                <label for="cliente">Nombre del Cliente</label>
+                <input type="text" class="form-control" id="cliente" placeholder="Ingrese su nombre completo" required>
+            </div>
+            <!-- Campo desplegable para seleccionar la habitación -->
+            <div class="form-group">
+                <label for="habitacion">Habitación</label>
+                <select class="form-control" id="habitacion" required>
+                    <option value="">Selecciona una habitación</option>
+                    <option value="101">Habitación 101 - $100</option>
+                    <option value="102">Habitación 102 - $120</option>
+                    <option value="103">Habitación 103 - $150</option>
+                </select>
+            </div>
+            <!-- Campo para seleccionar la fecha inicial -->
+            <div class="form-group">
+                <label for="fecha-inicio">Fecha Inicial</label>
+                <input type="date" class="form-control" id="fecha-inicio" required>
+            </div>
+            <!-- Campo para seleccionar la fecha final -->
+            <div class="form-group">
+                <label for="fecha-fin">Fin de Fecha</label>
+                <input type="date" class="form-control" id="fecha-fin" required>
+            </div>
+            <!-- Estado de la reserva -->
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <select class="form-control" id="estado" required>
+                    <option value="Confirmada">Confirmada</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+            </div>
+            <!-- Botón para guardar la reserva -->
+            <button type="submit" class="btn btn-primary btn-block">Guardar Reserva</button>
+        </form>
+
+        <!-- Enlace para regresar al inicio -->
+        <p class="text-center mt-3">
+            <a href="../index.html">Volver al Inicio</a>
+        </p>
     </div>
-    
-    <!-- Enlaces a JavaScript -->
-    <script src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery.dataTables.min.js"></script>
+
+    <!-- footer -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2023 Hotel Santacrusiana. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- Archivos JavaScript -->
+    <script src="../presentation_layer/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../presentation_layer/assets/js/bootstrap.min.js"></script>
     <script>
+        // Lógica para el formulario de reserva
         $(document).ready(function () {
-            $('#tabla-reservas').DataTable({
-                "ajax": {
-                    "url": "/api/reservas",
-                    "dataSrc": ""
-                },
-                "columns": [
-                    { "data": "id" },
-                    { "data": "cliente_nombre" },
-                    { "data": "habitacion_numero" },
-                    { "data": "fecha_inicio" },
-                    { "data": "fecha_fin" },
-                    { "data": "estado" }
-                ]
+            $('#form-reserva').submit(function (event) {
+                event.preventDefault();
+
+                // Recopilar datos del formulario
+                const reserva = {
+                    cliente: $('#cliente').val(),
+                    habitacion: $('#habitacion').val(),
+                    fecha_inicio: $('#fecha-inicio').val(),
+                    fecha_fin: $('#fecha-fin').val(),
+                    estado: $('#estado').val()
+                };
+
+                // Enviar datos a la API
+                $.ajax({
+                    url: '/api/reservas', // Reemplazar con la URL de la API real
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(reserva),
+                    success: function () {
+                        alert('Reserva guardada exitosamente.');
+                        $('#form-reserva')[0].reset(); // Limpiar formulario
+                    },
+                    error: function () {
+                        alert('Error al guardar la reserva. Intenta de nuevo.');
+                    }
+                });
             });
         });
-    </script>
-
-    <script>
-        includeHTML("footer.html", "footer");
     </script>
 </body>
 

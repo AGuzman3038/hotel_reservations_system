@@ -4,77 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel XYZ - Inicio</title>
+
+    <!-- Título de la página -->
+    <title>Hotel Santacrusiana - Habitaciones</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <!-- Bootstrap CSS para estilos predefinidos -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Hotel XYZ</a>
+            <!-- Logo del hotel -->
+            <a class="navbar-brand" href="../index.html">Hotel Santacrusiana</a>
+            <!-- Botón para menú responsive -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Opciones del menú -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                        <!-- Enlace para iniciar sesión -->
+                        <a class="nav-link" href="../login.html">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.html">Registrarse</a>
+                        <!-- Enlace para registrarse -->
+                        <a class="nav-link" href="../register.html">Registrarse</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <div class="container mt-5">
         <h1 class="mt-4">Habitaciones Disponibles</h1>
         <div class="row">
+            <!-- Habitación Deluxe -->
             <div class="col-md-4">
                 <div class="card mb-4">
+                    <!-- Imagen de la habitación -->
                     <img class="card-img-top" src="../assets/imagenes/habitacion-deluxe.jpg" alt="Habitación Deluxe">
                     <div class="card-body">
                         <h5 class="card-title">Habitación Deluxe</h5>
                         <p class="card-text">Una habitación espaciosa con todas las comodidades modernas.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <!-- Botón para reservar esta habitación -->
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Suite Familiar -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img class="card-img-top" src="../assets/imagenes/habitacion-familiar.jpg" alt="Suite Familiar">
                     <div class="card-body">
                         <h5 class="card-title">Suite Familiar</h5>
                         <p class="card-text">Perfecta para familias, con dos camas grandes y sala de estar.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Habitación Económica -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img class="card-img-top" src="../assets/imagenes/habitacion-economica.jpg" alt="Habitación Económica">
                     <div class="card-body">
                         <h5 class="card-title">Habitación Económica</h5>
-                        <p class="card-text">Alojamiento sencillo y cómodo a un precio accesible.</p>
-                        <a href="booking.html" class="btn btn-primary">Reservar</a>
+                        <p class="card-text">Alojamiento más sencillo y cómodo a un precio accesible.</p>
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Habitación de Lujo -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-de-lujo.jpg" alt="Habitación de Lujo">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación de Lujo</h5>
+                        <p class="card-text">Experiencia premium con vistas impresionantes y jacuzzi privado.</p>
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Habitación Premium -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-premium.jpg" alt="Habitación Premium">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Premium</h5>
+                        <p class="card-text">Espacio exclusivo con todas las comodidades de alta gama.</p>
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Habitación Standard -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="../assets/imagenes/habitacion-standard.jpg" alt="Habitación Standard">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación Standard</h5>
+                        <p class="card-text">Perfecta para estancias cortas con un precio muy competitivo.</p>
+                        <a href="../cliente/reservas.html" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- footer -->
     <footer class="py-4 bg-dark text-white-50">
         <div class="container text-center">
-            <small>© 2023 Hotel XYZ. Todos los derechos reservados.</small>
+            <small>© 2023 Hotel Santacrusiana. Todos los derechos reservados.</small>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
+    <!-- Archivos JavaScript -->
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
 </body>
